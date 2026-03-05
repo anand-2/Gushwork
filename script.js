@@ -547,7 +547,6 @@ if ('IntersectionObserver' in window) {
 
 /**
  * Renders brand logos dynamically from JSON data
- * Easy to add/remove logos by modifying the brandLogos array
  */
 function renderBrandLogos() {
     const brandLogosContainer = document.getElementById('brandLogosContainer');
@@ -560,8 +559,7 @@ function renderBrandLogos() {
     // Clear existing content
     brandLogosContainer.innerHTML = '';
     
-    // Create and append only the first 3 logo elements from JSON data
-    brandLogos.slice(0, 3).forEach((brand, index) => {
+    brandLogos.forEach((brand, index) => {
         const logoElement = document.createElement('div');
         logoElement.className = 'brand-logo';
         logoElement.id = brand.id;
@@ -584,6 +582,6 @@ function renderBrandLogos() {
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
     calculateScrollTriggerPoint();
-    updateCarousel(); // Ensure first image has correct thumbnail
-    renderBrandLogos(); // Render brand logos from JSON data
+    updateCarousel();
+    renderBrandLogos();
 });

@@ -2803,8 +2803,7 @@
 
     /* Below 580px */
     @media (max-width: 580px) {
-         /* Brand Logos - Show only 4 on smaller screens */
-        .brand-logo:nth-child(n+5) {
+        .brand-logo:nth-child(n+4) {
             display: none;
         }
             
