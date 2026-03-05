@@ -375,7 +375,7 @@ function handleScroll() {
     // Show/hide sticky header
     if (currentScroll > scrollTriggerPoint && isScrollingDown) {
         stickyHeader.classList.add('active');
-    } else if (currentScroll < scrollTriggerPoint) {
+    } else if (currentScroll < scrollTriggerPoint || !isScrollingDown) {
         stickyHeader.classList.remove('active');
     }
 
