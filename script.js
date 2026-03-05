@@ -322,21 +322,28 @@ function updateCarousel() {
     });
 }
 
-// Zoom functionality on hover
+const zoomPanel = document.getElementById('zoomPanel');
+const ZOOM_LEVEL = 5;
+
 function handleZoom(e) {
     const rect = mainImageContainer.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    
+    const xPercent = (e.clientX - rect.left) / rect.width;
+    const yPercent = (e.clientY - rect.top) / rect.height;
 
-    // Set CSS variables for zoom effect
-    zoomOverlay.style.setProperty('--zoom-x', `${x}%`);
-    zoomOverlay.style.setProperty('--zoom-y', `${y}%`);
+    zoomPanel.style.width = '200px';
+    zoomPanel.style.height = '200px';
+    zoomPanel.style.top = mainImageContainer.offsetTop + 'px';
+
+    zoomPanel.classList.add('active');
+    zoomPanel.style.backgroundImage = `url(${mainImage.src})`;
+    zoomPanel.style.backgroundSize = `${ZOOM_LEVEL * 100}%`;
+    zoomPanel.style.backgroundPosition = `${xPercent * 100}% ${yPercent * 100}%`;
 }
 
-// Reset zoom when mouse leaves
 function resetZoom() {
-    zoomOverlay.style.setProperty('--zoom-x', '50%');
-    zoomOverlay.style.setProperty('--zoom-y', '50%');
+    zoomPanel.classList.remove('active');
+    zoomPanel.style.backgroundImage = '';
 }
 
 // Add smooth fade transition to main image
