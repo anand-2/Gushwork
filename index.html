@@ -282,7 +282,30 @@
                 </div>
             </div>
             <div class="built-to-last-cta-wrapper">
-                <button class="built-to-last-cta">Request a Quote</button>
+                <button class="built-to-last-cta" id="requestQuoteBtn">Request a Quote</button>
+                    </section>
+
+                    <!-- Request a Call Back Modal -->
+                    <div class="modal-overlay" id="requestModalOverlay" style="display:none;">
+                        <div class="modal-dialog">
+                            <div class="modal-header">
+                                <span class="modal-title">Request a call back</span>
+                                <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
+                            </div>
+                            <form class="modal-form">
+                                <input type="text" class="modal-input" placeholder="Full Name" required />
+                                <input type="text" class="modal-input" placeholder="Company Name" required />
+                                <input type="email" class="modal-input" placeholder="Email Address" required />
+                                <div class="modal-phone-row">
+                                    <select class="modal-phone-select">
+                                        <option>+91</option>
+                                    </select>
+                                    <input type="tel" class="modal-input modal-phone" placeholder="7003026616" required />
+                                </div>
+                                <button type="submit" class="modal-submit">Submit Form</button>
+                            </form>
+                        </div>
+                    </div>
                     </div>
                 </section>
 
@@ -743,7 +766,32 @@
                 </div>
             </div>
         </section>
-        <script src="script.js"></script>
+                <script src="script.js"></script>
+                <script>
+                // Modal open/close logic
+                document.addEventListener('DOMContentLoaded', function() {
+                    var modal = document.getElementById('requestModalOverlay');
+                    var openBtn = document.getElementById('requestQuoteBtn');
+                    var closeBtn = document.getElementById('modalCloseBtn');
+                    if(openBtn && modal && closeBtn) {
+                        openBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            modal.style.display = 'flex';
+                            document.body.style.overflow = 'hidden';
+                        });
+                        closeBtn.addEventListener('click', function() {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = '';
+                        });
+                        modal.addEventListener('click', function(e) {
+                            if(e.target === modal) {
+                                modal.style.display = 'none';
+                                document.body.style.overflow = '';
+                            }
+                        });
+                    }
+                });
+                </script>
         <!-- Footer Section -->
         <div style="border-top: 1px solid #E1E3E8">
              <footer class="footer-section">

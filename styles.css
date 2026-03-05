@@ -1,4 +1,114 @@
     /* ===========================
+         MODAL STYLES
+         =========================== */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(38, 42, 46, 0.55);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+    }
+    .modal-dialog {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 8px 32px rgba(43,57,144,0.13);
+        max-width: 400px;
+        width: 100%;
+        padding: 0 0 24px 0;
+        font-family: 'Inter', sans-serif;
+        animation: modalIn 0.18s cubic-bezier(0.4,0,0.2,1);
+    }
+    @keyframes modalIn {
+        from { transform: translateY(40px) scale(0.98); opacity: 0; }
+        to { transform: none; opacity: 1; }
+    }
+    .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 24px 0 24px;
+    }
+    .modal-title {
+        font-size: 17px;
+        font-weight: 500;
+        color: #181A1F;
+        font-family: 'Inter', sans-serif;
+    }
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #666;
+        cursor: pointer;
+        padding: 0 2px;
+        border-radius: 4px;
+        transition: background 0.15s;
+    }
+    .modal-close:hover {
+        background: #f2f2f2;
+    }
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 24px 0 24px;
+    }
+    .modal-input {
+        border: 1px solid #E1E3E8;
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-family: 'Inter', sans-serif;
+        outline: none;
+        transition: border 0.2s;
+        background: #ffffff;
+    }
+    .modal-input:focus {
+        border-color: #262A2E;
+    }
+    .modal-phone-row {
+        display: flex;
+    }
+    .modal-phone-select {
+        border: 1px solid #E1E3E8;
+        border-radius: 8px 0 0px 8px;
+        padding: 10px 8px;
+        font-size: 1rem;
+        background: #ffffff;
+        color: #222;
+        min-width: 70px;
+        outline: none;
+        transition: border 0.2s;
+    }
+    .modal-phone-select:focus {
+        border-color: #2B3990;
+    }
+    .modal-phone {
+        flex: 1 1 auto;
+        border-radius: 0 8px 8px 0;
+        border-left: none;
+    }
+    .modal-submit {
+        background: #262A2E;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        border: none;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+        padding: 12px 0;
+        margin-top: 2px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .modal-submit:hover {
+        background: #2B3990;
+    }
+    /* ===========================
        FOOTER SECTION
        =========================== */
     .footer-section {
@@ -1086,7 +1196,7 @@
     }
 
     .faq-title {
-        font-size: 2.25rem;
+        font-size: 44px;
         font-weight: 700;
         margin-bottom: 36px;
         color: #222;
@@ -2310,6 +2420,10 @@
         .portfolio-card-desc {
             font-size: 14px;
         }
+
+        .footer-main{            
+            margin-bottom: 80px;
+        }
     }
 
     @media (min-width: 1080px) and (max-width: 1120px) {
@@ -2571,7 +2685,6 @@
 
         .faq-catalogue-input{
             width: 80%;
-            min-width: 494px;
         }
 
         .faq-catalogue-btn {
@@ -2592,6 +2705,10 @@
             max-width: 100%;
             min-width: 100%;
             justify-content: space-between;
+        }
+
+        .footer-main{            
+            margin-bottom: 80px;
         }
 
         .footer-section,
@@ -2652,10 +2769,18 @@
             margin-top: 32px;
             margin-bottom: 80px;
         }
+
+        .nav-links,.sticky-nav {
+            gap: 15px
+        }
+
+        .sticky-nav .cta-button {
+            padding: 0px;
+        }
     }
 
-    /* Below 360px */
-    @media (max-width: 360px) {
+    /* Below 580px */
+    @media (max-width: 580px) {
          /* Brand Logos - Show only 4 on smaller screens */
         .brand-logo:nth-child(n+5) {
             display: none;
@@ -2665,8 +2790,76 @@
             display: none !important;
         }
 
-        .product-title {
+        .product-title ,.specs-title{
             font-size: 36px;
+            line-height: 43px;
+        }
+
+        .price-range{
+            font-size: 20px;
+            line-height: 28px;
+        }
+
+        .shipping-info{
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-buttons {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            height: 52px;
+        }
+
+        .btn-secondary {
+            width: 100%;
+            height: 52px;
+            background-color: #ffffff;
+        }
+
+        .thumbnail{
+            width: 64px;
+            height: 64px;
+        }
+
+        .trust-text{
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        .brand-logo img {
+            width: 90px;
+            max-height: 24px;
+        }
+
+        .price-section{
+            padding: 16px;
+        }
+
+        .specs-subtitle{
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 48px;
+        }
+
+        .built-to-last-subtitle{
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 32px;
+        }
+
+        .feature-desc{
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+         /* Brand Logos - Show only 4 on smaller screens */
+         .brand-logo:nth-child(n+5) {
+            display: none;
         }
 
         /* Footer */
@@ -2773,6 +2966,11 @@
         .process-container {
             padding: 16px 8px;
         }
+
+        .faq-title{
+            font-size: 36px;
+            line-height: 43px;
+        }
         /* removed mobile vertical .process-tabs override for horizontal scroll */
 
         /* Applications */
@@ -2792,21 +2990,39 @@
 
         .faq-catalogue-box {
             display: block;
-            height: 167px;
+            height: 274px;
         }
 
         .faq-catalogue-input{
-            width: 80%;
-            min-width: 494px;
+            width: 100%;
         }
 
         .faq-catalogue-btn {
-            width: 158px;
-            min-width: 158px
+            width: 100%;
+            min-width: none;
+            max-width: none;
         }
 
-        .applications-title, .applications-desc{
-            max-width: 532px;
+        .applications-title {
+            font-size: 36px;
+            line-height: 43px;
+        }
+
+        .applications-desc {
+            font-size: 16px;
+            line-height: 26px;
+            max-width: 100%;
+        }
+
+        .applications-carousel-btn {
+            width: 48px;
+            height: 48px;
+        }
+
+        
+
+        .applications-header{
+            margin-bottom: 48px;
         }
 
         .faq-catalogue-text {
@@ -2814,7 +3030,7 @@
         }
 
         .faq-catalogue-form {
-            flex-direction: row;
+            flex-direction: column;
             max-width: 100%;
             min-width: 100%;
             justify-content: space-between;
@@ -2841,9 +3057,23 @@
 
         .applications-header{
             max-width: 1240px;
-            margin-left: 48px;
-            margin-right: 48px;
+            margin-left: 16px;
+            margin-right: 16px;
             box-sizing: border-box;
+        }
+
+        .applications-carousel {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 8px;
+        }
+        .application-card {
+            width: 320px;
+            height: 320px;
+            max-width: 320px;
+            padding: 0;            
         }
 
         .product-container {
@@ -2851,16 +3081,96 @@
             flex-flow: column-reverse;
         }
 
+        .process-title,.reviews-title,.portfolio-title ,.contact-quote-title{
+            font-size: 36px;
+            line-height: 43px;
+        }
+
+        .process-desc,.reviews-desc,.portfolio-desc,.contact-quote-desc {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .process-step-title{
+            font-size: 28px;
+            line-height: 45px;
+            margin-bottom: 16px;
+        }
+
+        .resources-row{
+            flex-direction: column;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .contact-quote-container{
+            padding: 24px;
+            gap: 40px;
+            
+        }
+
+        .footer-col-title{
+            margin-bottom: 0px;
+        }
+
+        .footer-brand{
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding: 24px;
+        }
+
+        .footer-tagline{
+            width: 100%;
+            text-align: center;
+            line-height: 19px;
+            font-size: 16px;
+        }
+
+        .footer-main{
+            flex-direction: column;
+            gap: 24px;
+            align-items: start;
+            margin-bottom: 49px;
+        }
+
+        .contact-quote-phone{
+            width: 100% !important;
+        }
+
+        .portfolio-card-image-wrapper{
+            height: 140px;
+        }
+
+        .portfolio-card-btn{
+            height: 36px;
+        }
+
+        .portfolio-card-btn{
+            padding: 8px 0;
+        }
+
+        .portfolio-cta-btn{
+            width: 100%;
+        }
+
+        .review-card{
+            padding: 20px;
+            height: 407px;
+            max-width: 280px;
+            min-width: 280px
+        }
+
         .navbar-container ,.sticky-header-content,.footer-bottom {
-            margin-left: 48px;
-            margin-right: 48px;
+            margin-left: 16px;
+            margin-right: 16px;
             padding-left: 0;
             padding-right: 0;
         }
 
         .technical-specs-section {
-            padding-left: 48px;
-            padding-right: 48px;
+            padding-left: 16px;
+            padding-right: 16px;
         }
 
 
@@ -2871,15 +3181,16 @@
         .reviews-section,
         .applications-section,
         .faq-section,
+        .resources-section,
         .process-section{
-            padding-top: 80px;
-            padding-bottom: 80px;
+            padding-top: 48px;
+            padding-bottom: 48px;
         }
 
         .trust-section{
-            margin-left: 48px;
-            margin-right: 48px;
+            margin-left: 16px;
+            margin-right: 16px;
             margin-top: 32px;
-            margin-bottom: 80px;
+            margin-bottom: 48px;
         }
     }
